@@ -5,6 +5,9 @@ const app = express();
 const routes = require('./routes');
 const dbConnection = require('./config/dbConnection');
 
+const Article = require('./models/Article');
+const Category = require('./models/Category');
+
 dbConnection.authenticate()
     .then(() => { console.log('database connected...') })
     .catch((err) => { console.log(err) });
