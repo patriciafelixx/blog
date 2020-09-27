@@ -6,7 +6,11 @@ const CategoriesController = require('./controllers/CategoriesController');
 const ArticlesController = require('./controllers/ArticlesController');
 
 routes.get('/', BlogController.index);
+
 routes.get('/categories', CategoriesController.index);
+routes.get('/admin/categories/new', CategoriesController.new);
+routes.post('/categories/save', CategoriesController.save);
+
 routes.get('/articles', ArticlesController.index);
 
 module.exports = routes;
