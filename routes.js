@@ -7,9 +7,12 @@ const ArticlesController = require('./controllers/ArticlesController');
 
 routes.get('/', BlogController.index);
 
-routes.get('/categories', CategoriesController.index);
 routes.get('/admin/categories/new', CategoriesController.new);
+routes.get('/admin/categories', CategoriesController.index);
 routes.post('/categories/save', CategoriesController.save);
+routes.get('/categories/update/:id', CategoriesController.show);
+routes.post('/categories/update/:id', CategoriesController.update);
+routes.post('/categories/delete/:id', CategoriesController.delete);
 
 routes.get('/articles', ArticlesController.index);
 

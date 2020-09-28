@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+<title>Categorias</title>
+</head>
+
+<%- include('../partials/navbar') %>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h2>Categorias</h2>
+            <a href="/admin/categories/new" class="btn btn-success">Criar nova categoria</a>
+        </div>
+    </div>
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Slug</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% categories.map(category => { %>
+            <tr>
+                <th><%= category.id %></th>
+                <th><%= category.title %></th>
+                <th><%= category.slug %></th>
+                <th class="d-flex justify-content-center">
+                    <form action="/categories/update/<%=category.id%>" method="GET">
+                        <button class="btn btn-warning btn-sm mr-1">Editar</button>
+                    </form>
+                    <form action="/categories/delete/<%=category.id%>" method="POST">
+                        <button class="btn btn-danger btn-sm">Deletar</button>
+                    </form>
+                </th>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer') %>
