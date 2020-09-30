@@ -31,7 +31,7 @@
                     <form action="/categories/update/<%=category.id%>" method="GET">
                         <button class="btn btn-warning btn-sm mr-1">Editar</button>
                     </form>
-                    <form action="/categories/delete/<%=category.id%>" method="POST">
+                    <form action="/categories/delete/<%=category.id%>" method="POST" onsubmit="confirmDel(event, this)">
                         <button class="btn btn-danger btn-sm">Deletar</button>
                     </form>
                 </th>
@@ -42,3 +42,13 @@
 </div>
 
 <%- include('../partials/footer') %>
+
+<script>
+    function confirmDel(event, form){
+        event.preventDefault();
+        const res = confirm("Deseja realmente deletar esta categoria?");
+        if(res){
+            form.submit();
+        }
+    }
+</script>
