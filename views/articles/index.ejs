@@ -1,0 +1,56 @@
+<%- include('../partials/header') %>
+<title>Artigos</title>
+</head>
+
+<%- include('../partials/navbar') %>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h2>Artigos</h2>
+            <a href="/admin/articles/new" class="btn btn-success">Criar novo artigo</a>
+        </div>
+    </div>
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Slug</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% articles.map(article => { %>
+            <tr>
+                <th><%= article.id %></th>
+                <th><%= article.title %></th>
+                <th><%= article.slug %></th>
+                <th><%= article.category.title %></th>
+                <th class="d-flex justify-content-center">
+                    <form action="/articles/update/<%=article.id%>" method="GET">
+                        <button class="btn btn-warning btn-sm mr-1">Editar</button>
+                    </form>
+                    <form action="/articles/delete/<%=article.id%>" method="POST" onsubmit="confirmDel(event, this)">
+                        <button class="btn btn-danger btn-sm">Deletar</button>
+                    </form>
+                </th>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer') %>
+
+<script>
+    function confirmDel(event, form){
+        event.preventDefault();
+        const res = confirm("Deseja realmente deletar este artigo?");
+        if(res){
+            form.submit();
+        }
+    }
+</script>
