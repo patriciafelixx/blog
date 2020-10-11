@@ -11,7 +11,7 @@
             <h2>Atualizar Artigo</h2>
         </div>
         <div class="card-body">
-            <form action="/articles/update/<%= article.id %>" method="POST">
+            <form action="/admin/articles/update/<%= article.id %>" method="POST">
                 <input type="text" class="form-control mb-3" name="title" placeholder="Título" value="<%= article.title%>">
                 <textarea id="article" name="body" placeholder="Escreva aqui o seu artigo"><%= article.body%></textarea>
                 <select class="form-control mt-3" name="category" id="">

@@ -30,10 +30,10 @@
                 <th><%= article.slug %></th>
                 <th><%= article.category.title %></th>
                 <th class="d-flex justify-content-center">
-                    <form action="/articles/update/<%=article.id%>" method="GET">
+                    <form action="/admin/articles/update/<%=article.id%>" method="GET">
                         <button class="btn btn-warning btn-sm mr-1">Editar</button>
                     </form>
-                    <form action="/articles/delete/<%=article.id%>" method="POST" onsubmit="confirmDel(event, this)">
+                    <form action="/admin/articles/delete/<%=article.id%>" method="POST" onsubmit="confirmDel(event, this)">
                         <button class="btn btn-danger btn-sm">Deletar</button>
                     </form>
                 </th>

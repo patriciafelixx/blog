@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<title>Home</title>
+</head>
+
+<%- include('../partials/navbar-home') %>
+
+<body>
+    <div class="container">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2><%= article.title %></h2>
+            </div>
+            <div class="card-body">
+                <%- article.body %>
+                <p>#<%= article.category.slug %></p>
+                <p><small class="text-muted">Atualizado em: <%= article.updatedAt %></small></p>
+                <a href="/articles"><button class="btn btn-outline-success">Voltar</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include('../partials/footer') %>

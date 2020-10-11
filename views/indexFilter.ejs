@@ -7,19 +7,13 @@
 <body>
     <div class="container">
 
-        <div class="jumbotron">
-            <h1 class="display-4">Bem vindo ao { Blog }</h1>
-            <p class="lead">Este é um simples blog com artigos sobre o mundo da programação.</p>
-            <hr class="my-4">
-            <a class="btn btn-primary btn-lg" href="/admin/articles/new" role="button">Quero contribuir!</a>
-        </div>
-
         <div class="dropdown mb-3">
             <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Filtrar por categoria
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/">Todas</a>
                 <% categories.map(category => { %>
                     <a class="dropdown-item" href="/category/<%= category.slug %>"><%= category.title %></a>
                 <% }) %>
@@ -30,7 +24,7 @@
         <div class="card mb-3">
             <div class="card-header">
                 <h2><%= article.title %></h2>
-                <small class="text-muted"><%= article.category.title %></small>
+                <small class="text-muted"><%= category.title %></small>
             </div>
             <div class="card-body">
                 <p><small class="text-muted">Atualizado em: <%= article.updatedAt %></small></p>

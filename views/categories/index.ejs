@@ -28,10 +28,10 @@
                 <th><%= category.title %></th>
                 <th><%= category.slug %></th>
                 <th class="d-flex justify-content-center">
-                    <form action="/categories/update/<%=category.id%>" method="GET">
+                    <form action="/admin/categories/update/<%=category.id%>" method="GET">
                         <button class="btn btn-warning btn-sm mr-1">Editar</button>
                     </form>
-                    <form action="/categories/delete/<%=category.id%>" method="POST" onsubmit="confirmDel(event, this)">
+                    <form action="/admin/categories/delete/<%=category.id%>" method="POST" onsubmit="confirmDel(event, this)">
                         <button class="btn btn-danger btn-sm">Deletar</button>
                     </form>
                 </th>
