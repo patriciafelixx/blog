@@ -6,6 +6,7 @@ const CategoriesController = require('./controllers/CategoriesController');
 const ArticlesController = require('./controllers/ArticlesController');
 
 routes.get('/', BlogController.index);
+routes.get('/page/:page', BlogController.index);
 routes.get('/category/:slug', BlogController.indexFilter);
 routes.get('/:slug', BlogController.slug);
 
