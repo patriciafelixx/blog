@@ -1,18 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const session = require('express-session');
 
 const routes = require('./routes');
 const dbConnection = require('./config/dbConnection');
-
-const Article = require('./models/Article');
-const Category = require('./models/Category');
 
 dbConnection.authenticate()
     .then(() => { console.log('database connected...') })
     .catch((err) => { console.log(err) });
 
 app.set('view engine', 'ejs');
+
+app.use(session({ secret: 'anything', cookie: { maxAge: 2 * 60 * 60 * 1000 }}))
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

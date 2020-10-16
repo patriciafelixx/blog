@@ -1,0 +1,52 @@
+<%- include('../partials/header') %>
+<title>Categorias</title>
+</head>
+
+<%- include('../partials/navbar') %>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h2>Usuários</h2>
+            <a href="/admin/users/create" class="btn btn-success">Criar novo usuário</a>
+        </div>
+    </div>
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.map(user => { %>
+            <tr>
+                <th><%= user.id %></th>
+                <th><%= user.email %></th>
+                <th class="d-flex justify-content-center">
+                    <form action="#" method="GET">
+                        <button class="btn btn-warning btn-sm mr-1">Editar</button>
+                    </form>
+                    <form action="#" method="POST" onsubmit="confirmDel(event, this)">
+                        <button class="btn btn-danger btn-sm">Deletar</button>
+                    </form>
+                </th>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer') %>
+
+<script>
+    function confirmDel(event, form){
+        event.preventDefault();
+        const res = confirm("Deseja realmente deletar este usuário?");
+        if(res){
+            form.submit();
+        }
+    }
+</script>
