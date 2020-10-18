@@ -10,11 +10,11 @@ const ArticlesController = {
                 model: Category
             }]
         });
-        res.render('articles/index', { articles });
+        res.render('articles/index', { articles, user: req.session.user });
     },
     new: async (req, res) => {
         const categories = await Category.findAll();
-        res.render('articles/new', { categories });
+        res.render('articles/new', { categories, user: req.session.user });
     },
     save: async (req, res) => {
         const { title, body, category } = req.body;
@@ -39,7 +39,7 @@ const ArticlesController = {
                 model: Category
             }]
         });
-        res.render('articles/update', { article, categories });
+        res.render('articles/update', { article, categories, user: req.session.user });
     },
     update: async (req, res) => {
         const { id } = req.params;

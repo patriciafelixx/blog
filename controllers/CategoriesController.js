@@ -4,10 +4,10 @@ const slugify = require('slugify');
 const CategoriesController = {
     index: async (req, res) => {
         const categories = await Category.findAll();
-        res.render('categories/index', { categories });
+        res.render('categories/index', { categories, user: req.session.user });
     },
     new: (req, res) => {
-        res.render('categories/new');
+        res.render('categories/new', { user: req.session.user });
     },
     save: async (req, res) => {
         const { title } = req.body;
