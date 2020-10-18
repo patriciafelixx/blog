@@ -63,8 +63,11 @@ const UsersController = {
         } else {
             res.send('usuário ou senha incorreta');
         }
-
-    }
+    },
+    logout: async (req, res) => {
+        req.session.user = null;
+        res.redirect('/');
+    },
 }
 
 module.exports = UsersController;

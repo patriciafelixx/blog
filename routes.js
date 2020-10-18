@@ -32,5 +32,6 @@ routes.get('/users/create', UsersController.create);
 routes.post('/users/create', UsersController.save);
 routes.get('/login', UsersController.login);
 routes.post('/login', UsersController.authenticate);
+routes.get('/logout', UsersController.logout);
 
 module.exports = routes;

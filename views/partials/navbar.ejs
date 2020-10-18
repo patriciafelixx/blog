@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5 ">
-    
+
     <a href="/" class="navbar-brand">{ Blog }</a>
 
     <div class="collapse navbar-collapse" id="navbarText">
-        
+
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/admin/categories">Categorias</a>
@@ -13,11 +13,18 @@
             </li>
         </ul>
 
-        <span class="navbar-brand">
-            <img src="/images/user.png" alt="avatar" height="30">
-            <small><%= user.email.split('@')[0]%></small>
-        </span>
-        
+
+        <div class="dropdown navbar-brand">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img src="/images/user.png" alt="avatar" height="30">
+                <%= user.email.split('@')[0]%>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/logout">sair</a>
+            </div>
+        </div>
+
 
     </div>
 
